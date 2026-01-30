@@ -1,0 +1,19 @@
+{
+  "name": "ch32PinAlias",
+  "version": "1.0.0",
+  "description": "Convert arduino-style pin aliases into pin/port params for CH32V003 and WCH RISC-V MCUs.",
+  "keywords": ["pin", "port", "alias", "CH32V003", "WCH", "RISC-V", "bare-metal"],
+  "authors": {
+    "name": "A. Kolesov",
+    "maintainer": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndyTakker/ch32PinAlias.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/AndyTakker/ch32PinAlias",
+  "frameworks": "*",
+  "platforms": ["wch-riscv"],
+  "headers": ["ch32PinAlias.hpp"]
+}
