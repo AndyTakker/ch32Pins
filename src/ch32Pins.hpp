@@ -168,6 +168,13 @@ inline const uint8_t pinRead(PinName pin) {
   return GPIO_ReadInputDataBit(pinPort(pin), pinNumber(pin));
 }
 
-inline const void pinWrite(PinName pin, uint8_t value) {
-  GPIO_WriteBit(pinPort(pin), pinNumber(pin), value ? Bit_SET : Bit_RESET);
+inline constexpr void pinWrite(PinName pin, uint8_t value) {
+  // GPIO_WriteBit(pinPort(pin), pinNumber(pin), value ? Bit_SET : Bit_RESET);
+  GPIO_TypeDef *GPIOx = pinPort(pin);
+  uint16_t GPIO_Pin = pinNumber(pin);
+  if (value != Bit_RESET) {
+    GPIOx->BSHR = GPIO_Pin;
+  } else {
+    GPIOx->BCR = GPIO_Pin;
+  }
 }
